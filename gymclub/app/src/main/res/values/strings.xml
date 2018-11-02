@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">gymclub</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">GymClub</string>
+
+    <!--MainActivity-->
+    <string name="main_dashboard">Dashboard</string>
+    <string name="main_courses">Courses</string>
+    <string name="main_profile">Profile</string>
 </resources>

@@ -9,3 +9,5 @@
 /build
 /captures
 .externalNativeBuild
+libs/
+src/main/java/top/koguma/gymclub/fragment/
