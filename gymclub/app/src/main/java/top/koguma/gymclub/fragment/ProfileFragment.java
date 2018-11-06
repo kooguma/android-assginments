@@ -1,6 +1,6 @@
 package top.koguma.gymclub.fragment;
 
-import android.support.v4.app.Fragment;
+import com.laputapp.ui.BaseFragment;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends GymClubBaseFragment {
 }
