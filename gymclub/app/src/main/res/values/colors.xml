@@ -18,4 +18,14 @@
 
     <color name="divider">#f4f4f4</color>
 
+    <color name="input_text_background">#e6e6e6</color>
+
+    <!--按钮-->
+    <color name="btn_login_pressed">#222222</color>
+    <color name="btn_login_normal">#444444</color>
+
+    <!--文字颜色-->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_hint">#727272</color>
+
 </resources>

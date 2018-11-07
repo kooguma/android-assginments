@@ -25,5 +25,6 @@ dependencies {
     implementation libs.vectorDrawable
     implementation libs.laputapp
     implementation libs.compatinset
+    implementation libs.formitemview
 
 }

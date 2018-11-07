@@ -45,5 +45,5 @@ ext {
             laputapp                : "com.loopeer:laputapp:$laputappVersion",
             compatinset   : "com.loopeer.library:compatinset:$developModuleVersion",
             formitemview  : "com.loopeer.library:formitemview:$developModuleVersion",
-            vectorDrawable: "com.android.support:support-vector-drawable:$developModuleVersion"]
+            vectorDrawable: "com.android.support:support-vector-drawable:$supportLibraryVersion"]
 }

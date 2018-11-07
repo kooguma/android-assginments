@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<com.loopeer.compatinset.InsetLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/divider"
+    android:background="@color/window_background_gray"
+    android:showDividers="middle"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/view_toolbar"/>
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:background="@color/window_background_white"
+        app:descDrawableLeft="@mipmap/ic_launcher_round"
+        android:gravity="center"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:imageRightVisible="invisible"
+        app:descText="@string/label_author"/>
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@color/window_background_white"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:descText="@string/profile_dashboard"/>
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@color/window_background_white"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:descText="@string/profile_courses"/>
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@color/window_background_white"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:descText="@string/profile_bands"/>
+
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@color/window_background_white"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:descText="@string/profile_divices"/>
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@color/window_background_white"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:descText="@string/profile_item5"/>
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@color/window_background_white"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:descText="@string/profile_item5"/>
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@color/window_background_white"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:descText="@string/profile_item6"/>
+
+
+    <com.loopeer.formitemview.FormTextItem
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@color/window_background_white"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        app:descText="@string/profile_item7"/>
+</com.loopeer.compatinset.InsetLinearLayout>

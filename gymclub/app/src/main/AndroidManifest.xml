@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.RegisterActivity"
+            android:label="@string/label_register"/>
+        <activity android:name=".activity.LoginActivity"
+            android:label="@string/label_login"/>
     </application>
 
 </manifest>
