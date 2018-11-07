@@ -14,17 +14,17 @@ import io.reactivex.Flowable;
 import java.util.ArrayList;
 import java.util.List;
 import top.koguma.gymclub.R;
-import top.koguma.gymclub.adapter.ListAdapter;
+import top.koguma.gymclub.adapter.DashboardListAdapter;
 import top.koguma.gymclub.decoration.GridItemDecoration;
-import top.koguma.gymclub.model.ListItem;
+import top.koguma.gymclub.model.Dashboard;
 
-public class ListFragment extends GymClubBaseFragment implements IRecycler<ListItem> {
+public class ListFragment extends GymClubBaseFragment implements IRecycler<Dashboard> {
 
     @Nullable @Override
     public View onCreateView(
         @NonNull LayoutInflater inflater,
         @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        return inflater.inflate(R.layout.fragment_dashboard_list, container, false);
     }
 
     @Override public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -42,20 +42,20 @@ public class ListFragment extends GymClubBaseFragment implements IRecycler<ListI
     }
 
     @Override public RxRecyclerAdapter createRecyclerViewAdapter() {
-        return new ListAdapter(getContext());
+        return new DashboardListAdapter(getContext());
     }
 
     @Override
-    public Flowable<? extends BaseResponse<List<ListItem>>> requestData(String offset, String page, String pageSize) {
-        List<ListItem> items = new ArrayList<>();
-        items.add(ListItem.testInstance());
-        items.add(ListItem.testInstance());
-        items.add(ListItem.testInstance());
-        items.add(ListItem.testInstance());
-        items.add(ListItem.testInstance());
-        items.add(ListItem.testInstance());
-        items.add(ListItem.testInstance());
-        items.add(ListItem.testInstance());
+    public Flowable<? extends BaseResponse<List<Dashboard>>> requestData(String offset, String page, String pageSize) {
+        List<Dashboard> items = new ArrayList<>();
+        items.add(Dashboard.testInstance());
+        items.add(Dashboard.testInstance());
+        items.add(Dashboard.testInstance());
+        items.add(Dashboard.testInstance());
+        items.add(Dashboard.testInstance());
+        items.add(Dashboard.testInstance());
+        items.add(Dashboard.testInstance());
+        items.add(Dashboard.testInstance());
         getRecyclerManager().onCacheLoaded(items);
         return null;
     }

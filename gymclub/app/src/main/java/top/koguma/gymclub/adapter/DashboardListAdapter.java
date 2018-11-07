@@ -1,7 +1,6 @@
 package top.koguma.gymclub.adapter;
 
 import android.content.Context;
-import android.icu.util.ValueIterator;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,23 +9,23 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.laputapp.ui.adapter.RxRecyclerAdapter;
 import top.koguma.gymclub.R;
-import top.koguma.gymclub.model.ListItem;
+import top.koguma.gymclub.model.Dashboard;
 
-public class ListAdapter extends RxRecyclerAdapter<ListItem> {
+public class DashboardListAdapter extends RxRecyclerAdapter<Dashboard> {
 
-    public ListAdapter(Context context) {
+    public DashboardListAdapter(Context context) {
         super(context);
     }
 
     @Override
-    public void bindView(ListItem item, int position, RecyclerView.ViewHolder viewHolder) {
+    public void bindView(Dashboard item, int position, RecyclerView.ViewHolder viewHolder) {
         ListViewHolder holder = (ListViewHolder) viewHolder;
         holder.bind(item);
     }
 
     @NonNull @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = getLayoutInflater().inflate(R.layout.list_item, parent, false);
+        View view = getLayoutInflater().inflate(R.layout.list_dashboard_item, parent, false);
         return new ListViewHolder(view);
     }
 
@@ -47,7 +46,7 @@ public class ListAdapter extends RxRecyclerAdapter<ListItem> {
             image.setAspectRatio(1.33f);
         }
 
-        public void bind(ListItem item) {
+        public void bind(Dashboard item) {
             title.setText(item.title);
             userName.setText(item.userName);
             flavor.setText(item.flavors);

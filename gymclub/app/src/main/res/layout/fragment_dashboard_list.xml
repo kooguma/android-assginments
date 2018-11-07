@@ -16,6 +16,7 @@
         loopeer:loopeer_empty="@layout/view_factory_empty"
         loopeer:loopeer_progress="@layout/view_factory_progress"
         loopeer:loopeer_refresh="spring_refresh"
+        android:background="@color/window_background_white"
         tools:ignore="all">
 
         <android.support.v7.widget.RecyclerView

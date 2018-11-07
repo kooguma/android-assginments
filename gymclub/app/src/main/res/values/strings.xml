@@ -5,4 +5,11 @@
     <string name="main_dashboard">Dashboard</string>
     <string name="main_courses">Courses</string>
     <string name="main_profile">Profile</string>
+
+    <string name="courses_hiit">hiit</string>
+    <string name="courses_dance">dance</string>
+    <string name="courses_yoga">yoga</string>
+    <string name="courses_aerobics">aerobics</string>
+    <string name="courses_diet">diet</string>
+    <string name="read_collection_count_format">%1$s阅读 · %2$s收藏</string>
 </resources>

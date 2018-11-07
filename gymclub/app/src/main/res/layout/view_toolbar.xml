@@ -28,7 +28,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/divider"
+        android:layout_height="@dimen/divider_1dp"
         android:background="@color/window_background_gray"/>
 
 </merge>

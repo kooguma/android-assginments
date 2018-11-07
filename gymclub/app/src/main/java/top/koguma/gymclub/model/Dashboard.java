@@ -2,7 +2,7 @@ package top.koguma.gymclub.model;
 
 import com.laputapp.model.BaseModel;
 
-public class ListItem extends BaseModel {
+public class Dashboard extends BaseModel {
 
     public String imageUrl;
     public String title;
@@ -10,8 +10,8 @@ public class ListItem extends BaseModel {
     public String userName;
     public String flavors;
 
-    public static ListItem testInstance() {
-        ListItem item = new ListItem();
+    public static Dashboard testInstance() {
+        Dashboard item = new Dashboard();
         item.imageUrl = "";
         item.title = "#平板撑 标题标题";
         item.avatarUrl = "";
