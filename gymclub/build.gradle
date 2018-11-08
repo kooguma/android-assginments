@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.1.2'
 
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -17,6 +17,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         google()
         jcenter()
     }
@@ -27,14 +28,14 @@ task clean(type: Delete) {
 }
 
 ext {
-    configs = [compileSdkVersion: 25,
-               buildToolsVersion: '26.0.0',
+    configs = [compileSdkVersion: 27,
+               buildToolsVersion: '27.0.0',
                minSdkVersion    : 16,
-               targetSdkVersion : 25,
+               targetSdkVersion : 27,
                versionCode      : 16,
                versionName      : '1.0.0',]
 
-    supportLibraryVersion = '27.1.1'
+    supportLibraryVersion = '27.0.0'
     laputappVersion = '1.4.5-beta57'
     developModuleVersion = '0.0.5-beta10'
 
