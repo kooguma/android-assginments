@@ -9,6 +9,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BMOB_APP_ID', "\"$configs.bmobApplicationId\""
+
     }
     buildTypes {
         release {
@@ -16,6 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -26,5 +30,9 @@ dependencies {
     implementation libs.laputapp
     implementation libs.compatinset
     implementation libs.formitemview
-
+    implementation libs.bmobSDK
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+    implementation libs.okio
+    implementation libs.gson
 }
