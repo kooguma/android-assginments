@@ -35,4 +35,6 @@ dependencies {
     implementation libs.rxAndroid
     implementation libs.okio
     implementation libs.gson
+
+    implementation 'com.youth.banner:banner:1.4.10'
 }

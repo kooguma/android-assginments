@@ -11,11 +11,16 @@
         style="@style/GymClubText.Primary.large"
         android:id="@+id/txt_title"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
     <com.facebook.drawee.view.SimpleDraweeView
         android:layout_marginTop="6dp"
         android:id="@+id/img_item"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
+        app:viewAspectRatio="2"
         app:placeholderImage="@color/colorAccent"
         app:roundedCornerRadius="2dp"/>
 
@@ -37,7 +42,7 @@
         android:orientation="horizontal">
 
         <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/img_header"
+            android:id="@+id/img_avatar"
             android:layout_width="20dp"
             android:layout_height="20dp"
             app:placeholderImage="@mipmap/ic_launcher_round"/>

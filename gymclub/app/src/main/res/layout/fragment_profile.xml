@@ -10,21 +10,34 @@
 
     <include layout="@layout/view_toolbar"/>
 
-    <com.loopeer.formitemview.FormTextItem
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:background="@color/window_background_white"
-        app:descDrawableLeft="@mipmap/ic_launcher_round"
-        android:gravity="center"
-        android:paddingLeft="@dimen/large_padding"
-        android:paddingRight="@dimen/large_padding"
-        app:imageRightVisible="invisible"
-        app:descText="@string/label_author"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/window_background_white">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/avatar"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="@dimen/large_padding"
+            app:placeholderImage="@mipmap/ic_launcher_round"
+            app:roundingBorderWidth="2dp"
+            app:roundingBorderColor="@color/window_background_dark"
+            app:roundAsCircle="true"/>
+
+        <TextView
+            style="@style/GymClubText.Primary"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:textSize="26sp"
+            android:id="@+id/txt_name"/>
+    </LinearLayout>
 
     <com.loopeer.formitemview.FormTextItem
-        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:background="@color/window_background_white"
         android:paddingLeft="@dimen/large_padding"
@@ -49,7 +62,6 @@
         android:paddingRight="@dimen/large_padding"
         app:descText="@string/profile_bands"/>
 
-
     <com.loopeer.formitemview.FormTextItem
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -60,9 +72,9 @@
         app:descText="@string/profile_divices"/>
 
     <com.loopeer.formitemview.FormTextItem
-        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:background="@color/window_background_white"
         android:paddingLeft="@dimen/large_padding"
@@ -86,7 +98,6 @@
         android:paddingLeft="@dimen/large_padding"
         android:paddingRight="@dimen/large_padding"
         app:descText="@string/profile_item6"/>
-
 
     <com.loopeer.formitemview.FormTextItem
         android:layout_width="match_parent"

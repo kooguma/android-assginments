@@ -80,30 +80,30 @@
                 android:textColor="@color/text_white"
                 android:textSize="20sp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp">
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="12dp"-->
+                <!--android:paddingLeft="8dp"-->
+                <!--android:paddingRight="8dp">-->
 
-                <CheckBox
-                    android:id="@+id/login_cb_remember_pwd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="@string/login_remember_password"
-                    android:textColor="@color/text_hint"
-                    android:textSize="18sp"/>
+                <!--<CheckBox-->
+                    <!--android:id="@+id/login_cb_remember_pwd"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:checked="false"-->
+                    <!--android:text="@string/login_remember_password"-->
+                    <!--android:textColor="@color/text_hint"-->
+                    <!--android:textSize="18sp"/>-->
 
-                <TextView
-                    android:id="@+id/login_tv_forget_pwd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/login_forget_password"
-                    android:textSize="18sp"/>
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/login_tv_forget_pwd"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="end"-->
+                    <!--android:text="@string/login_forget_password"-->
+                    <!--android:textSize="18sp"/>-->
+            <!--</LinearLayout>-->
         </LinearLayout>
     </com.loopeer.compatinset.InsetLinearLayout>
 </com.loopeer.compatinset.InsetScrollView>

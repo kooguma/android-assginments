@@ -11,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import com.dynamic.refresher.RefreshHelper;
 import com.fastui.uipattern.IRecycler;
 import com.laputapp.http.BaseResponse;
@@ -24,6 +27,7 @@ import top.koguma.gymclub.adapter.CoursesListAdapter;
 import top.koguma.gymclub.adapter.DashboardListAdapter;
 import top.koguma.gymclub.model.Course;
 import top.koguma.gymclub.model.Dashboard;
+import top.koguma.gymclub.utils.Toaster;
 
 public class CoursesFragment extends GymClubBaseFragment implements IRecycler<Course> {
 
@@ -56,18 +60,17 @@ public class CoursesFragment extends GymClubBaseFragment implements IRecycler<Co
 
     @Override
     public Flowable<? extends BaseResponse<List<Course>>> requestData(String offset, String page, String pageSize) {
-        List<Course> courses = new ArrayList<>();
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        courses.add(Course.testInstance());
-        getRecyclerManager().onCacheLoaded(courses);
+        BmobQuery<Course> courseQuery = new BmobQuery<>();
+        courseQuery.setCachePolicy(BmobQuery.CachePolicy.NETWORK_ELSE_CACHE);
+        courseQuery.findObjects(new FindListener<Course>() {
+            @Override public void done(List<Course> list, BmobException e) {
+                if ( e == null){
+                    getRecyclerManager().onCacheLoaded(list);
+                }else {
+                    Toaster.showToast(e.getErrorCode());
+                }
+            }
+        });
         return null;
     }
 }

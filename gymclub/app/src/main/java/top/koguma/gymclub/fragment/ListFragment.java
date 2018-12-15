@@ -7,6 +7,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import com.fastui.uipattern.IRecycler;
 import com.laputapp.http.BaseResponse;
 import com.laputapp.ui.adapter.RxRecyclerAdapter;
@@ -17,6 +20,7 @@ import top.koguma.gymclub.R;
 import top.koguma.gymclub.adapter.DashboardListAdapter;
 import top.koguma.gymclub.decoration.GridItemDecoration;
 import top.koguma.gymclub.model.Dashboard;
+import top.koguma.gymclub.utils.Toaster;
 
 public class ListFragment extends GymClubBaseFragment implements IRecycler<Dashboard> {
 
@@ -47,16 +51,17 @@ public class ListFragment extends GymClubBaseFragment implements IRecycler<Dashb
 
     @Override
     public Flowable<? extends BaseResponse<List<Dashboard>>> requestData(String offset, String page, String pageSize) {
-        List<Dashboard> items = new ArrayList<>();
-        items.add(Dashboard.testInstance());
-        items.add(Dashboard.testInstance());
-        items.add(Dashboard.testInstance());
-        items.add(Dashboard.testInstance());
-        items.add(Dashboard.testInstance());
-        items.add(Dashboard.testInstance());
-        items.add(Dashboard.testInstance());
-        items.add(Dashboard.testInstance());
-        getRecyclerManager().onCacheLoaded(items);
+        BmobQuery<Dashboard> dashboardQuery = new BmobQuery<>();
+        dashboardQuery.setCachePolicy(BmobQuery.CachePolicy.NETWORK_ELSE_CACHE);
+        dashboardQuery.findObjects(new FindListener<Dashboard>() {
+            @Override public void done(List<Dashboard> list, BmobException e) {
+                if (e == null) {
+                    getRecyclerManager().onCacheLoaded(list);
+                } else {
+                    Toaster.showToast(e.getErrorCode());
+                }
+            }
+        });
         return null;
     }
 

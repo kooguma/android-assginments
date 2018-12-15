@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fresco="http://schemas.android.com/tools"
     android:paddingTop="@dimen/xsmall_padding"
     android:paddingLeft="@dimen/xsmall_padding"
     android:paddingRight="@dimen/xsmall_padding"
     android:orientation="vertical">
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/img_header"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        app:placeholderImage="@color/colorAccent"
-        app:roundedCornerRadius="4dp"
-        />
+        android:layout_height="180dp"/>
 
     <View
         android:layout_width="match_parent"

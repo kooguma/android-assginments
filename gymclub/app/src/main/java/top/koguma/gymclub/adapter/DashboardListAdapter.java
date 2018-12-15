@@ -40,6 +40,7 @@ public class DashboardListAdapter extends RxRecyclerAdapter<Dashboard> {
         ListViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.img_item);
+            userAvatar = itemView.findViewById(R.id.img_avatar);
             title = itemView.findViewById(R.id.txt_title);
             userName = itemView.findViewById(R.id.txt_name);
             flavor = itemView.findViewById(R.id.txt_flavor);
@@ -47,9 +48,11 @@ public class DashboardListAdapter extends RxRecyclerAdapter<Dashboard> {
         }
 
         public void bind(Dashboard item) {
+            image.setImageURI(item.imageUrl);
+            userAvatar.setImageURI(item.avatarUrl);
             title.setText(item.title);
             userName.setText(item.userName);
-            flavor.setText(item.flavors);
+            flavor.setText(item.flavorCount);
         }
 
     }
