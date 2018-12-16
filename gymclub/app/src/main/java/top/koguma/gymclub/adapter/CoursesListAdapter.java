@@ -7,12 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import cn.bmob.v3.b.V;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.laputapp.ui.adapter.RxRecyclerAdapter;
 import com.youth.banner.Banner;
 import java.util.Arrays;
 import top.koguma.gymclub.R;
-import top.koguma.gymclub.loader.BannerImageLoader;
+import top.koguma.gymclub.helper.BannerImageLoader;
 import top.koguma.gymclub.model.Course;
 
 public class CoursesListAdapter extends RxRecyclerAdapter<Course> {
@@ -26,8 +27,19 @@ public class CoursesListAdapter extends RxRecyclerAdapter<Course> {
         "http://img02.tooopen.com/images/20150503/tooopen_sy_121173163976.jpg",
         "http://img02.tooopen.com/images/20150503/tooopen_sy_121173296845.jpg" };
 
+    private OnItemClickListener<Course> mListener;
+    private OnHeaderItemClickListener mHeaderItemClickListener;
+
     public CoursesListAdapter(Context context) {
         super(context);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener<Course> listener) {
+        this.mListener = listener;
+    }
+
+    public void setHeaderItemClickListener(OnHeaderItemClickListener listener) {
+        this.mHeaderItemClickListener = listener;
     }
 
     @Override public void bindView(Course course, int pos, RecyclerView.ViewHolder viewHolder) {
@@ -57,13 +69,39 @@ public class CoursesListAdapter extends RxRecyclerAdapter<Course> {
 
     class CoursesHeaderHolder extends RecyclerView.ViewHolder {
         Banner imgHeader;
+        TextView mTxtEmail;
+        TextView mTxtSMS;
+        TextView mTxtCall;
+        TextView mTxtLocation;
 
         CoursesHeaderHolder(View itemView) {
             super(itemView);
             imgHeader = itemView.findViewById(R.id.img_header);
+            mTxtEmail = itemView.findViewById(R.id.txt_email);
+            mTxtSMS = itemView.findViewById(R.id.txt_sms);
+            mTxtCall = itemView.findViewById(R.id.txt_call);
+            mTxtLocation = itemView.findViewById(R.id.txt_location);
             imgHeader.setImageLoader(new BannerImageLoader());
             imgHeader.setImages(Arrays.asList(IMAGE_URLS));
             imgHeader.start();
+            HeaderItemClickListener listener = new HeaderItemClickListener();
+            mTxtEmail.setOnClickListener(listener);
+            mTxtSMS.setOnClickListener(listener);
+            mTxtCall.setOnClickListener(listener);
+            mTxtLocation.setOnClickListener(listener);
+        }
+    }
+
+    class HeaderItemClickListener implements View.OnClickListener {
+
+        @Override public void onClick(View v) {
+            if (mHeaderItemClickListener != null) {
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override public void onClick(View v) {
+                        mHeaderItemClickListener.onHeaderItemClick(v);
+                    }
+                });
+            }
         }
     }
 
@@ -74,9 +112,11 @@ public class CoursesListAdapter extends RxRecyclerAdapter<Course> {
         TextView readAndCollectionCount;
         SimpleDraweeView avatar;
         TextView name;
+        View view;
 
         CoursesItemHolder(View itemView) {
             super(itemView);
+            view = itemView;
             title = itemView.findViewById(R.id.txt_title);
             image = itemView.findViewById(R.id.img_item);
             desc = itemView.findViewById(R.id.txt_desc);
@@ -86,7 +126,7 @@ public class CoursesListAdapter extends RxRecyclerAdapter<Course> {
             image.setAspectRatio(2f);
         }
 
-        void bind(Course course) {
+        void bind(final Course course) {
             title.setText(course.title);
             image.setImageURI(course.imageUrl);
             avatar.setImageURI(course.avatarUrl);
@@ -96,6 +136,13 @@ public class CoursesListAdapter extends RxRecyclerAdapter<Course> {
                     course.collectCount)
             );
             name.setText(course.name);
+            if (mListener != null) {
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override public void onClick(View v) {
+                        mListener.onItemClick(course);
+                    }
+                });
+            }
         }
     }
 

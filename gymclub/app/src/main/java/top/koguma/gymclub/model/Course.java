@@ -5,13 +5,13 @@ import com.laputapp.model.BaseModel;
 
 public class Course extends BmobObject {
 
-    public String title;
-    public String imageUrl;
-    public String description;
-    public String readCount;
-    public String collectCount;
-    public String avatarUrl;
-    public String name;
-
+   public String title;
+   public String imageUrl;
+   public String description;
+   public String readCount;
+   public String collectCount;
+   public String avatarUrl;
+   public String name;
+   public String videoUrl;
 
 }

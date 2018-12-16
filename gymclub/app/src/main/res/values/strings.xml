@@ -36,5 +36,9 @@
     <string name="login_user_name">username</string>
     <string name="label_login">Login</string>
     <string name="label_register">Register</string>
+    <string name="courses_email">email</string>
+    <string name="courses_sms">sms</string>
+    <string name="courses_call">call</string>
+    <string name="courses_location">location</string>
 
 </resources>

@@ -11,6 +11,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField 'String', 'BMOB_APP_ID', "\"$configs.bmobApplicationId\""
+        manifestPlaceholders = [BAIDU_MAP_KEY: configs.baiduMapKey]
 
     }
     buildTypes {
@@ -23,7 +24,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation libs.appcompatV7
     implementation libs.design
     implementation libs.vectorDrawable
@@ -35,6 +36,6 @@ dependencies {
     implementation libs.rxAndroid
     implementation libs.okio
     implementation libs.gson
-
     implementation 'com.youth.banner:banner:1.4.10'
+    implementation files('src/main/libs/BaiduLBS_Android.jar')
 }

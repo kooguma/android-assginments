@@ -19,6 +19,7 @@ import java.util.List;
 import top.koguma.gymclub.R;
 import top.koguma.gymclub.adapter.DashboardListAdapter;
 import top.koguma.gymclub.decoration.GridItemDecoration;
+import top.koguma.gymclub.helper.BmobQueryFactory;
 import top.koguma.gymclub.model.Dashboard;
 import top.koguma.gymclub.utils.Toaster;
 
@@ -51,8 +52,7 @@ public class ListFragment extends GymClubBaseFragment implements IRecycler<Dashb
 
     @Override
     public Flowable<? extends BaseResponse<List<Dashboard>>> requestData(String offset, String page, String pageSize) {
-        BmobQuery<Dashboard> dashboardQuery = new BmobQuery<>();
-        dashboardQuery.setCachePolicy(BmobQuery.CachePolicy.NETWORK_ELSE_CACHE);
+        BmobQuery<Dashboard> dashboardQuery = BmobQueryFactory.createQuery(Dashboard.class);
         dashboardQuery.findObjects(new FindListener<Dashboard>() {
             @Override public void done(List<Dashboard> list, BmobException e) {
                 if (e == null) {

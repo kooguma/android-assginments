@@ -8,6 +8,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +23,20 @@ import com.laputapp.ui.adapter.RxRecyclerAdapter;
 import io.reactivex.Flowable;
 import java.util.ArrayList;
 import java.util.List;
+import top.koguma.gymclub.Navigator;
 import top.koguma.gymclub.R;
 import top.koguma.gymclub.adapter.CoursesListAdapter;
 import top.koguma.gymclub.adapter.DashboardListAdapter;
+import top.koguma.gymclub.adapter.OnHeaderItemClickListener;
+import top.koguma.gymclub.adapter.OnItemClickListener;
+import top.koguma.gymclub.helper.BmobQueryFactory;
 import top.koguma.gymclub.model.Course;
 import top.koguma.gymclub.model.Dashboard;
 import top.koguma.gymclub.utils.Toaster;
 
 public class CoursesFragment extends GymClubBaseFragment implements IRecycler<Course> {
 
+    private static final String TAG = "CoursesFragment";
 
     @Nullable @Override
     public View onCreateView(
@@ -55,19 +61,44 @@ public class CoursesFragment extends GymClubBaseFragment implements IRecycler<Co
     }
 
     @Override public RxRecyclerAdapter<Course> createRecyclerViewAdapter() {
-        return new CoursesListAdapter(getContext());
+        final CoursesListAdapter adapter = new CoursesListAdapter(getContext());
+        adapter.setOnItemClickListener(new OnItemClickListener<Course>() {
+            @Override public void onItemClick(Course course) {
+                Navigator.startMediaPlayActivity(getContext(), course.videoUrl);
+            }
+        });
+        adapter.setHeaderItemClickListener(new OnHeaderItemClickListener() {
+            @Override public void onHeaderItemClick(View view) {
+                switch (view.getId()) {
+                    case R.id.txt_call:
+                        Navigator.startDialService(getContext());
+                        break;
+                    case R.id.txt_sms:
+                        Navigator.startSMSService(getContext());
+                        break;
+                    case R.id.txt_email:
+                        Navigator.startEmailService(getContext());
+                        break;
+                    case R.id.txt_location:
+                        Navigator.startMapActivity(getContext());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+        return adapter;
     }
 
     @Override
     public Flowable<? extends BaseResponse<List<Course>>> requestData(String offset, String page, String pageSize) {
-        BmobQuery<Course> courseQuery = new BmobQuery<>();
-        courseQuery.setCachePolicy(BmobQuery.CachePolicy.NETWORK_ELSE_CACHE);
+        BmobQuery<Course> courseQuery = BmobQueryFactory.createQuery(Course.class);
         courseQuery.findObjects(new FindListener<Course>() {
             @Override public void done(List<Course> list, BmobException e) {
-                if ( e == null){
+                if (e == null) {
                     getRecyclerManager().onCacheLoaded(list);
-                }else {
-                    Toaster.showToast(e.getErrorCode());
+                } else {
+                    Log.e(TAG, e.getMessage());
                 }
             }
         });
