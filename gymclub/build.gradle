@@ -36,7 +36,8 @@ ext {
                versionCode      : 16,
                versionName      : '1.0.0',
                bmobApplicationId: 'c39a42452c01b5ea5dc5b00001e180b2',
-               baiduMapKey      : 'wf8PpBVPB9GXS8qHMe5m1z1LhWkiH9Cl']
+               baiduMapKey      : 'wf8PpBVPB9GXS8qHMe5m1z1LhWkiH9Cl',
+               umengAppKey      : '5c1658d3f1f5565a370005e2']
 
     supportLibraryVersion = '27.0.0'
     laputappVersion = '1.4.5-beta57'

@@ -11,7 +11,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField 'String', 'BMOB_APP_ID', "\"$configs.bmobApplicationId\""
+        buildConfigField 'String', 'UMENG_APP_KEY', "\"$configs.umengAppKey\""
+
         manifestPlaceholders = [BAIDU_MAP_KEY: configs.baiduMapKey]
+        manifestPlaceholders = [UMENG_APP_KEY: configs.umengAppKey]
+
+        multiDexEnabled true
 
     }
     buildTypes {
@@ -38,4 +43,6 @@ dependencies {
     implementation libs.gson
     implementation 'com.youth.banner:banner:1.4.10'
     implementation files('src/main/libs/BaiduLBS_Android.jar')
+    implementation project(':umeng')
+
 }

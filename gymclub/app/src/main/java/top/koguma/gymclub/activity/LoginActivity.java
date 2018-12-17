@@ -8,9 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import com.laputapp.rx.RxBus;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import java.util.Map;
 import top.koguma.gymclub.R;
 import top.koguma.gymclub.event.ProfileUpdateEvent;
 import top.koguma.gymclub.model.User;
@@ -25,6 +30,10 @@ public class LoginActivity extends GymClubBaseActivity implements View.OnClickLi
     EditText mEtPassWord;
     Button mBtnLogin;
 
+    ImageView mImgWX;
+    ImageView mImgQQ;
+    ImageView mImgSina;
+
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -36,6 +45,13 @@ public class LoginActivity extends GymClubBaseActivity implements View.OnClickLi
         mEtPassWord = (EditText) findViewById(R.id.login_et_password);
         mBtnLogin = (Button) findViewById(R.id.login_btn_login);
         mBtnLogin.setOnClickListener(this);
+        AuthClickListener listener = new AuthClickListener();
+        mImgWX = (ImageView) findViewById(R.id.img_wx);
+        mImgQQ = (ImageView) findViewById(R.id.img_qq);
+        mImgSina = (ImageView) findViewById(R.id.img_sina);
+        mImgWX.setOnClickListener(listener);
+        mImgQQ.setOnClickListener(listener);
+        mImgSina.setOnClickListener(listener);
     }
 
     @Override protected void onSetupToolbar(Toolbar toolbar) {
@@ -51,6 +67,45 @@ public class LoginActivity extends GymClubBaseActivity implements View.OnClickLi
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    class AuthClickListener implements View.OnClickListener, UMAuthListener {
+
+        @Override public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.img_wx:
+                    UMShareAPI.get(LoginActivity.this)
+                        .doOauthVerify(LoginActivity.this, SHARE_MEDIA.WEIXIN, this);
+                    break;
+                case R.id.img_qq:
+                    UMShareAPI.get(LoginActivity.this)
+                        .doOauthVerify(LoginActivity.this, SHARE_MEDIA.QQ, this);
+                    break;
+                case R.id.img_sina:
+                    UMShareAPI.get(LoginActivity.this)
+                        .doOauthVerify(LoginActivity.this, SHARE_MEDIA.SINA, this);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        @Override public void onStart(SHARE_MEDIA share_media) {
+
+        }
+
+        @Override public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
+            finish();
+        }
+
+        @Override public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
+            Log.e("TAG", "error = " + throwable.getMessage());
+
+        }
+
+        @Override public void onCancel(SHARE_MEDIA share_media, int i) {
+
+        }
     }
 
     @Override public void onClick(View v) {
