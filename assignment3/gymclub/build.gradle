@@ -1,0 +1,62 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        //Bmob的maven仓库地址--必填
+        maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    configs = [compileSdkVersion: 27,
+               buildToolsVersion: '27.0.0',
+               minSdkVersion    : 16,
+               targetSdkVersion : 27,
+               versionCode      : 16,
+               versionName      : '1.0.0',
+               bmobApplicationId: 'c39a42452c01b5ea5dc5b00001e180b2',
+               baiduMapKey      : 'wf8PpBVPB9GXS8qHMe5m1z1LhWkiH9Cl']
+
+    supportLibraryVersion = '27.0.0'
+    laputappVersion = '1.4.5-beta57'
+    developModuleVersion = '0.0.5-beta10'
+    bmobSDKVersion = '3.6.8-rc4'
+    rxJavaVersion = '2.2.2'
+    rxAndroidVersion = '2.1.0'
+    okioVersion = '2.1.0'
+    gsonVersion = '2.8.5'
+
+    libs = [appcompatV7   : "com.android.support:appcompat-v7:$supportLibraryVersion",
+            recyclerView  : "com.android.support:recyclerview-v7:$supportLibraryVersion",
+            design        : "com.android.support:design:$supportLibraryVersion",
+            laputapp      : "com.loopeer:laputapp:$laputappVersion",
+            compatinset   : "com.loopeer.library:compatinset:$developModuleVersion",
+            formitemview  : "com.loopeer.library:formitemview:$developModuleVersion",
+            vectorDrawable: "com.android.support:support-vector-drawable:$supportLibraryVersion",
+            bmobSDK       : "cn.bmob.android:bmob-sdk:$bmobSDKVersion",
+            rxJava        : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxAndroid     : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            okio          : "com.squareup.okio:okio:$okioVersion",
+            gson          : "com.google.code.gson:gson:$gsonVersion"]
+}

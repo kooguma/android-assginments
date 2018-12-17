@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "top.koguma.gymclub"
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BMOB_APP_ID', "\"$configs.bmobApplicationId\""
+        buildConfigField 'String', 'UMENG_APP_KEY', "\"$configs.umengAppKey\""
+
+        manifestPlaceholders = [BAIDU_MAP_KEY: configs.baiduMapKey]
+        manifestPlaceholders = [UMENG_APP_KEY: configs.umengAppKey]
+
+        multiDexEnabled true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation libs.appcompatV7
+    implementation libs.design
+    implementation libs.vectorDrawable
+    implementation libs.laputapp
+    implementation libs.compatinset
+    implementation libs.formitemview
+    implementation libs.bmobSDK
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+    implementation libs.okio
+    implementation libs.gson
+    implementation 'com.youth.banner:banner:1.4.10'
+    implementation files('src/main/libs/BaiduLBS_Android.jar')
+    implementation project(':umeng')
+
+}

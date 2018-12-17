@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Toolbar"
+        parent="@style/Widget.AppCompat.Toolbar">
+        <item name="android:elevation"
+            tools:targetApi="lollipop">@dimen/elevation
+        </item>
+        <item name="elevation">@dimen/elevation</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="titleTextAppearance">@style/TextAppearance.Widget.GymClub.Toolbar.Title</item>
+    </style>
+
+    <style name="TextAppearance.Widget.GymClub.Toolbar.Title"
+        parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_xlarge</item>
+    </style>
+
+    <style name="GymClubText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="GymClubText.Primary">
+        <item name="android:textColor">@color/text_color_primary</item>
+    </style>
+
+    <style name="GymClubText.Primary.large">
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="GymClubText.Secondary">
+        <item name="android:textColor">@color/text_color_secondary</item>
+        <item name="android:textSize">@dimen/text_size_larger</item>
+    </style>
+
+    <style name="GymClubText.Secondary.Normal">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="GymClubText.Secondary.Small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="GymClubText.Tertiary">
+        <item name="android:textColor">@color/text_color_tertiary</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="GymClubText.Tertiary.Small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="GymClubText.Tertiary.Normal">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="GymClubText.Courses"
+        parent="GymClubText.Primary">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="GymClubText.Hint">
+        <item name="android:textColor">@color/text_color_hint</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="GymClubText.Hint.Small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="GymClubText.Hint.Normal">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+</resources>

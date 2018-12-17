@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">GymClub</string>
+
+    <!--MainActivity-->
+    <string name="main_dashboard">Dashboard</string>
+    <string name="main_courses">Courses</string>
+    <string name="main_profile">Profile</string>
+
+    <string name="courses_hiit">hiit</string>
+    <string name="courses_dance">dance</string>
+    <string name="courses_yoga">yoga</string>
+    <string name="courses_aerobics">aerobics</string>
+    <string name="courses_diet">diet</string>
+    <string name="read_collection_count_format">%1$s阅读 · %2$s收藏</string>
+    <string name="label_author">Koguma</string>
+    <string name="profile_dashboard">Activities</string>
+    <string name="profile_courses">Courses</string>
+    <string name="profile_bands">Bands</string>
+    <string name="profile_divices">Devices</string>
+    <string name="profile_item5">Item5</string>
+    <string name="profile_item6">Item6</string>
+    <string name="profile_item7">Item7</string>
+
+    <string name="profile_register">Register</string>
+    <string name="profile_sign_in">Login</string>
+    <string name="profile_sign_out">Logout</string>
+    <string name="register_name">username</string>
+    <string name="register_email_address">email address</string>
+    <string name="register_password">password</string>
+    <string name="register_confirm_password">password confirm</string>
+    <string name="register_register">Register</string>
+    <string name="login_user_password">password</string>
+    <string name="login_sign_in">Login</string>
+    <string name="login_remember_password">remembered</string>
+    <string name="login_forget_password">forget password?</string>
+    <string name="login_user_name">username</string>
+    <string name="label_login">Login</string>
+    <string name="label_register">Register</string>
+    <string name="courses_email">email</string>
+    <string name="courses_sms">sms</string>
+    <string name="courses_call">call</string>
+    <string name="courses_location">location</string>
+
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/xsmall_padding"
+    android:paddingLeft="@dimen/xsmall_padding"
+    android:paddingRight="@dimen/xsmall_padding"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img_header"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:placeholderImage="@color/colorAccent"
+        app:roundedCornerRadius="4dp"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_padding"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/GymClubText.Courses"
+            android:text="@string/courses_aerobics"
+            android:drawableTop="@drawable/ic_courses1_24dp"/>
+
+        <TextView
+            style="@style/GymClubText.Courses"
+            android:text="@string/courses_dance"
+            android:drawableTop="@drawable/ic_courses2_24dp"/>
+
+        <TextView
+            style="@style/GymClubText.Courses"
+            android:text="@string/courses_hiit"
+            android:drawableTop="@drawable/ic_courses3_24dp"/>
+
+        <TextView
+            style="@style/GymClubText.Courses"
+            android:text="@string/courses_yoga"
+            android:drawableTop="@drawable/ic_courses4_24dp"/>
+
+        <TextView
+            style="@style/GymClubText.Courses"
+            android:text="@string/courses_diet"
+            android:drawableTop="@drawable/ic_courses5_24dp"/>
+    </LinearLayout>
+
+</LinearLayout>

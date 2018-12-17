@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.loopeer.compatinset.InsetScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.loopeer.compatinset.InsetLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_toolbar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/login_input_text_shape"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_user_name"/>
+
+                <EditText
+                    android:id="@+id/register_et_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="@string/register_name"
+                    android:maxLength="20"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/login_input_text_shape"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/ic_email"/>
+
+                <EditText
+                    android:id="@+id/register_et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="@string/register_email_address"
+                    android:inputType="textEmailAddress"
+                    android:paddingRight="10dp"
+                    android:maxLength="20"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/login_input_text_shape"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/ic_user_pwd"/>
+
+                <EditText
+                    android:id="@+id/register_et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="@string/register_password"
+                    android:inputType="textPassword"
+                    android:paddingRight="10dp"
+                    android:maxLength="20"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/login_input_text_shape"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp">
+
+                <TextView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/ic_user_pwd"/>
+
+                <EditText
+                    android:id="@+id/register_et_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:hint="@string/register_confirm_password"
+                    android:inputType="textPassword"
+                    android:paddingRight="10dp"
+                    android:maxLength="20"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/register_btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/login_button_selector"
+                android:text="@string/register_register"
+                android:textColor="@color/text_white"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </com.loopeer.compatinset.InsetLinearLayout>
+</com.loopeer.compatinset.InsetScrollView>
