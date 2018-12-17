@@ -40,5 +40,6 @@
     <string name="courses_sms">sms</string>
     <string name="courses_call">call</string>
     <string name="courses_location">location</string>
+    <string name="label_article">Article</string>
 
 </resources>

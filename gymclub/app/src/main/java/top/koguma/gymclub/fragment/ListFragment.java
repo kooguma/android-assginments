@@ -16,8 +16,10 @@ import com.laputapp.ui.adapter.RxRecyclerAdapter;
 import io.reactivex.Flowable;
 import java.util.ArrayList;
 import java.util.List;
+import top.koguma.gymclub.Navigator;
 import top.koguma.gymclub.R;
 import top.koguma.gymclub.adapter.DashboardListAdapter;
+import top.koguma.gymclub.adapter.OnItemClickListener;
 import top.koguma.gymclub.decoration.GridItemDecoration;
 import top.koguma.gymclub.helper.BmobQueryFactory;
 import top.koguma.gymclub.model.Dashboard;
@@ -47,7 +49,13 @@ public class ListFragment extends GymClubBaseFragment implements IRecycler<Dashb
     }
 
     @Override public RxRecyclerAdapter createRecyclerViewAdapter() {
-        return new DashboardListAdapter(getContext());
+        DashboardListAdapter adapter = new DashboardListAdapter(getContext());
+        adapter.setOnItemClickListener(new OnItemClickListener<Dashboard>() {
+            @Override public void onItemClick(Dashboard dashboard) {
+                Navigator.startArticleActivity(getContext(),dashboard.articleContent);
+            }
+        });
+        return adapter;
     }
 
     @Override

@@ -3,6 +3,7 @@ package top.koguma.gymclub;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import top.koguma.gymclub.activity.ArticleActivity;
 import top.koguma.gymclub.activity.LoginActivity;
 import top.koguma.gymclub.activity.MapActivity;
 import top.koguma.gymclub.activity.MediaPlayerActivity;
@@ -12,6 +13,7 @@ public final class Navigator {
 
     public static final String EXTRA_VIDEO_URL = "extra_video_url";
     public static final String DEFAULT_PHONE_NUMBER = "18515652921";
+    public static final String EXTRA_CONTENT_URL = "extra_content_url";
 
     private Navigator() {
     }
@@ -27,6 +29,12 @@ public final class Navigator {
 
     public static void startRegisterActivity(Context context) {
         startActivity(context, RegisterActivity.class);
+    }
+
+    public static void startArticleActivity(Context context,String content) {
+        Intent intent = new Intent(context, ArticleActivity.class);
+        intent.putExtra(EXTRA_CONTENT_URL, content);
+        context.startActivity(intent);
     }
 
     public static void startMediaPlayActivity(Context context, String videoUrl) {
@@ -51,12 +59,13 @@ public final class Navigator {
     }
 
     public static void startSMSService(Context context) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO,Uri.parse("smsto:" + DEFAULT_PHONE_NUMBER));
-        intent.putExtra("sms_body","test sms");
+        Intent intent = new Intent(Intent.ACTION_SENDTO,
+            Uri.parse("smsto:" + DEFAULT_PHONE_NUMBER));
+        intent.putExtra("sms_body", "test sms");
         context.startActivity(intent);
     }
 
-    public static void startMapActivity(Context context){
-        startActivity(context,MapActivity.class);
+    public static void startMapActivity(Context context) {
+        startActivity(context, MapActivity.class);
     }
 }

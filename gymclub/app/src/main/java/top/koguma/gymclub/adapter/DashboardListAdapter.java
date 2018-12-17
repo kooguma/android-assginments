@@ -17,6 +17,12 @@ public class DashboardListAdapter extends RxRecyclerAdapter<Dashboard> {
         super(context);
     }
 
+    public OnItemClickListener<Dashboard> mListener;
+
+    public void setOnItemClickListener(OnItemClickListener<Dashboard> listener) {
+        this.mListener = listener;
+    }
+
     @Override
     public void bindView(Dashboard item, int position, RecyclerView.ViewHolder viewHolder) {
         ListViewHolder holder = (ListViewHolder) viewHolder;
@@ -31,6 +37,7 @@ public class DashboardListAdapter extends RxRecyclerAdapter<Dashboard> {
 
     class ListViewHolder extends RecyclerView.ViewHolder {
 
+        private View view;
         private SimpleDraweeView image;
         private SimpleDraweeView userAvatar;
         private TextView title;
@@ -39,6 +46,7 @@ public class DashboardListAdapter extends RxRecyclerAdapter<Dashboard> {
 
         ListViewHolder(View itemView) {
             super(itemView);
+            view = itemView;
             image = itemView.findViewById(R.id.img_item);
             userAvatar = itemView.findViewById(R.id.img_avatar);
             title = itemView.findViewById(R.id.txt_title);
@@ -47,12 +55,19 @@ public class DashboardListAdapter extends RxRecyclerAdapter<Dashboard> {
             image.setAspectRatio(1.33f);
         }
 
-        public void bind(Dashboard item) {
+        public void bind(final Dashboard item) {
             image.setImageURI(item.imageUrl);
             userAvatar.setImageURI(item.avatarUrl);
             title.setText(item.title);
             userName.setText(item.userName);
             flavor.setText(item.flavorCount);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    if(mListener != null){
+                        mListener.onItemClick(item);
+                    }
+                }
+            });
         }
 
     }

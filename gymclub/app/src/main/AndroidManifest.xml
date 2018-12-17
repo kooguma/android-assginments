@@ -64,7 +64,8 @@
         <activity
             android:name=".activity.MapActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-
+        <activity android:name=".activity.ArticleActivity"
+            android:label="@string/label_article"/>
 
         <!--新浪-->
         <activity

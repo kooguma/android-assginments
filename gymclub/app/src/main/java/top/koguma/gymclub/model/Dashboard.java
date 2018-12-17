@@ -10,5 +10,6 @@ public class Dashboard extends BmobObject {
     public String imageUrl;
     public String userName;
     public String flavorCount;
+    public String articleContent;
 
 }
